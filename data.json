@@ -1,0 +1,17 @@
+
+{"teachingTeam": [ 
+    {"tel": "061-201755",
+    "email": "conor.ryan@ul.ie",
+    "github": "jedwardLover",
+    "location": "Limerick"},
+
+    {"tel": "061-201214",
+    "email": "Bilal.Majeed@ul.ie",
+    "github": "abbaFan",
+    "location": "Limerick"},
+
+    {"tel": "061-206214",
+    "email": "SarmadAli@ul.ie",
+    "github": "bigNarstier",
+    "location": "Limerick"}
+]}

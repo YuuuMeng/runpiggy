@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+    <title>Cornor's Portfolio Page</title>
+    <link rel="stylesheet"  href="index.css"> 
+
+    <script>
+        
+        var name = getCookie("name");
+        var organization = getCookie("organization");
+        if (name == "") {
+            name = prompt("Please enter your name:")
+            setCookie("name", name, 1)
+        }
+        if (organization == "") {
+            organization = prompt("Please enter your organization:")
+            setCookie("organization", organization, 1)
+        }
+
+        function setCookie(cname,cvalue,exdays)
+        {
+            var d = new Date();
+            d.setTime(d.getTime()+(exdays*24*60*60*1000));
+            var expires = "expires="+d.toGMTString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        function getCookie(cname)
+        {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++)
+            {
+                var c = ca[i].trim();
+                if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+    </script>
+
+</head>
+<body>
+<div class="section1">
+    Conor's Portfolio Page
+</div>
+<div class="section2">
+    <div class="sub1">
+        Conor
+    </div>
+    <div class="sub2">
+        <span>tel</span><span>012-34567</span>
+    </div>
+    <div class="sub3">
+        <span>e-mail</span><span>123456@ul.ie</span>
+    </div>
+    <div class="sub4">
+        <span>major</span><span>software development</span>
+    </div>
+    <div class="sub5">
+        <span>location</span><span>Limerick</span>
+    </div>
+</div>
+<div class="section3">
+    <div class="sub6">
+        <h2></h2>
+        <p></p>
+        <button onclick="experience()">Work Experience</button>
+    </div>
+    <div class="sub7">
+        <h2></h2>
+        <p></p>
+        <button onclick="education()">Education</button>
+    </div>
+    <div class="sub8">
+        <h2></h2>
+        <p></p>
+        <button onclick="project()">Projects</button>
+    </div>
+
+
+    <script>
+    var section3 = new XMLHttpRequest();
+        section3.open("get","section3.json");
+        section3.send(null);
+        section3.onload = function (ev) {
+            if (section3.status == 200) {
+                var json = JSON.parse(section3.responseText);
+                document.getElementsByClassName("sub6")[0].children[0]
+                    .innerHTML=json.section3[0].title;
+                document.getElementsByClassName("sub6")[0].children[1]
+                    .innerHTML=json.section3[0].value;
+                document.getElementsByClassName("sub7")[0].children[0]
+                    .innerHTML=json.section3[1].title;
+                document.getElementsByClassName("sub7")[0].children[1]
+                    .innerHTML=json.section3[1].value;
+                document.getElementsByClassName("sub8")[0].children[0]
+                    .innerHTML=json.section3[2].title;
+                document.getElementsByClassName("sub8")[0].children[1]
+                    .innerHTML=json.section3[2].value;
+            }
+        }
+    </script>
+    <script type="text/javascript" src="section3.json"></script>
+    
+</div>
+<hr>
+<div class="section4">
+    <div><button onclick="surprise()">Surprise me!</button></div>
+    <div><button onclick="logoout()">Log out</button></div>
+</div>
+<hr>
+<div class="section5">
+    <h1>Work Experience(Jobs)</h1>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">CSCEC - Civil engineer internship<br><span style="font-size: 14px;color: grey">2019</span></p>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">CSCEC - Junior civil engineer<br><span style="font-size: 14px;color: grey">2019-2021</span></p>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">University of Limerick - Student<br><span style="font-size: 14px;color: grey">2021-2022</span></p>
+    <div style="text-align: center"><button onclick="clearshow()">Clear</button></div>
+</div>
+<div class="section6">
+    <h1>Education(Courses)</h1>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(47,139,178)">NWAFU-- Structural mechanics<br><span style="font-size: 14px;color: grey">2019</span><span style="font-size: 14px;color: grey;float: right;margin-right: 40px;">China</span></p>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(47,139,178)">UL-- Software engineering human computer interaction<br><span style="font-size: 14px;color: grey">2021</span><span style="font-size: 14px;color: grey;float: right;margin-right: 40px;">Ireland</span></p>
+    <p style="margin-left: 40px;font-size: 16px;color: rgb(47,139,178)">UL-- Intermediate Programming  BFA<br><span style="font-size: 14px;color: grey">2022</span><span style="font-size: 14px;color: grey;float: right;margin-right: 40px;">Ireland</span></p>
+    <div style="text-align: center"><button onclick="clearshow()">Clear</button></div>
+</div>
+<div class="section7">
+    <h1>Projects</h1>
+    
+    <div>
+        <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">Website design of Beijing 2022 Winter Olympic Games<br><span style="font-size: 14px;color: grey">2022</span></p>
+        <p style="margin-left: 40px;font-size: 16px;color: black">A brief illustrated introduction about the history of winter olympics.</p>
+
+        <div id="introduce1" onmouseover="display1()" onmouseout="disappear1()" style="margin-left:40px;width: 400px;height: 300px;background-color: aqua;">
+            <img src="project1.png"style="width: 400px; height: 300px;" >
+        </div>
+        
+        <div id="box1" style="width: 600px;height: 100px;text-align: center;background-color: azure;">
+            The 2022 Winter Olympics were set to take place on Friday, February 4 through Sunday, February 20, just six months after the Tokyo Games. 
+        </div>
+        <div id="key1div" style="float: right;margin-right: 40px;width: 400px;height: 200px;background-color: rgb(235, 177, 186);margin-top: -300px;font-size: 12px">
+        The first organized international competition involving winter sports was introduced just five years after the birth of the modern Olympics in 1896. Known as the Nordic Games, this competition included athletes predominantly from Nordic countries (such as Norway and Sweden). It was held eight times between 1901 and 1926, with the Swedish capital of Stockholm hosting all but one time. Figure skating was included in the Olympics for the first time in the 1908 Summer Games in London.
+        </div>
+    </div>
+
+<HR></HR>
+<BR></BR>
+
+    <div>
+        <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">Website design of the ceremony show in Beijing Olympic Games.<br><span style="font-size: 14px;color: grey">"Welcome my friends!"</span></p>
+        <p style="margin-left: 40px;font-size: 16px;color: black">The Opening and Closing Ceremonies of the Olympic Games represent the official start - and end - of an Olympic Games. </p>
+
+        <div id="introduce2" onmouseover="display2()" onmouseout="disappear2()" style="margin-left:40px;width: 400px;height: 300px;">
+            <img src="project2.png"style="width: 400px; height: 300px;" >
+        </div>
+        
+        <div id="box2" style="width: 600px;height: 100px;text-align: center;background-color: azure;">
+            Through music, song, dance and fireworks, the ceremonies invite people to discover the culture of the country in which the Games are taking place.
+        </div>
+        <div id="key2div" style="float: right;margin-right: 40px;width: 400px;height: 200px;background-color: rgb(169, 241, 155);margin-top: -300px;font-size: 12px">
+            The 2022 Winter Olympics closing ceremony was held at the Beijing National Stadium in Beijing on 20 February 2022. As mandated by the Olympic Charter, the proceedings are expected to combine the formal ceremonial closing of this international sporting event (including closing speeches, hoisting of the flags, the parade of athletes, and the handover of the Olympic flag) with an artistic spectacle to showcase the culture and history of the current and next host nation (Italy) for the 2026 Winter Olympics in Milan and Cortina d'Ampezzo.
+        </div>
+    </div>
+    <HR></HR>
+    <BR></BR>
+
+
+    <div>
+        <p style="margin-left: 40px;font-size: 16px;color: rgb(39,154,130)">Events introduction of Beijing 2022 Winter Olympic Games<br><span style="font-size: 14px;color: grey">The combination of athleticism and spectacle!</span></p>
+        <p style="margin-left: 40px;font-size: 16px;color: black">Five most popular events.</p>
+
+        <div id="introduce3" onmouseover="display3()" onmouseout="disappear3()" style="margin-left:40px;width: 400px;height: 300px;">
+            <img src="project3.png"style="width: 400px; height: 300px;" >
+        </div>
+        
+        <div id="box3" style="width: 600px;height: 100px;text-align: center;background-color: azure;">
+         As a form of skiing where skiers rely on their own locomotion to move across snow-covered terrain, rather than using ski lifts or other forms of assistance. Cross-country skiing is widely practiced as a sport and recreational activity.
+        </div>
+        <div id="key3div" style="float: right;margin-right: 40px;width: 400px;height: 200px;background-color: rgba(195, 223, 234, 0.971);margin-top: -300px;font-size: 12px">
+            Figure skating is a sport in which individuals, pairs, or groups perform on figure skates on ice. It was the first winter sport to be included in the Olympic Games.The Olympic disciplines are men's singles.
+            Ice hockey is a contact winter team sport played on ice skates, usually on an ice skating rink with lines and markings specific to the sport. In ice hockey, two opposing teams use ice hockey sticks to control, advance and shoot a closed, vulcanized, rubber disc called a "puck" into the other team's goal. 
+        </div>
+    </div>
+    <HR></HR>
+    <BR></BR>
+    
+
+
+
+
+
+
+
+    <div style="text-align: center"><button onclick="clearshow()">Clear</button></div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
+
+
